@@ -1,0 +1,207 @@
+<div class="m-6">
+  <mat-table [dataSource]="eventPaymentDetailslistData" class="my-4 mat-elevation-z8">
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef>
+        <p class="mb-0 uppercase text-base text-black-500 font-semibold">Name</p>
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let row">
+        <div class="flex items-center justify-between w-full">
+          <span class="mobile-label">Name:</span>
+          <span class="mobile-label-align">{{ row?.personNameBean?.value}} </span>
+        </div>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="designation">
+      <mat-header-cell *matHeaderCellDef>
+        <p class="mb-0 uppercase text-base text-black-500 font-semibold">Designation</p>
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let row">
+        <div class="flex items-center justify-between w-full">
+          <span class="mobile-label">Designation:</span>
+          <span class="mobile-label-align">{{ row?.designation}} </span>
+        </div>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="organization">
+      <mat-header-cell *matHeaderCellDef>
+        <p class="mb-0 uppercase text-base text-black-500 font-semibold">Organization</p>
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let row">
+        <div class="flex items-center justify-between w-full">
+          <span class="mobile-label">Organization:</span>
+          <span class="mobile-label-align">
+            {{row?.organization }}</span>
+        </div>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="phoneNumber">
+      <mat-header-cell *matHeaderCellDef>
+        <p class="mb-0 uppercase text-base text-black-500 font-semibold">Phone Number</p>
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let row">
+        <div class="flex items-center justify-between w-full">
+          <span class="mobile-label">Phone Number:</span>
+          <span class="mobile-label-align">{{ row?.phoneNumber }}
+          </span>
+        </div>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef>
+        <p class="mb-0 uppercase text-base text-black-500 font-semibold">Email</p>
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let row">
+        <div class="flex items-center justify-between w-full">
+          <span class="mobile-label">Email:</span>
+          <span class="mobile-label-align">{{ row?.email }}
+          </span>
+        </div>
+      </mat-cell>
+    </ng-container>
+
+    <!-- <ng-container matColumnDef="webUrl">
+      <mat-header-cell *matHeaderCellDef>
+        <p [ngClass]="tableHeaderCss">Web Url</p>
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let row">
+        <div class="flex items-center justify-between w-full">
+          <span class="mobile-label">Web Url</span>
+          <span class="mobile-label-align">{{ row?.webUrl }}
+          </span>
+        </div>
+      </mat-cell>
+    </ng-container> -->
+
+    <ng-container matColumnDef="paymentMethod">
+      <mat-header-cell *matHeaderCellDef>
+        <p class="mb-0 uppercase text-base text-black-500 font-semibold">Payment Method</p>
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let row">
+        <div class="flex items-center justify-between w-full">
+          <span class="mobile-label">Payment Method</span>
+          <span class="mobile-label-align">{{ row?.modeOfPaymentBean?.value }}
+          </span>
+        </div>
+      </mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="payableAmount">
+      <mat-header-cell *matHeaderCellDef>
+        <p class="mb-0 uppercase text-base text-black-500 font-semibold">Total Payable Amount </p>
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let row">
+        <div class="flex items-center justify-between w-full">
+          <span class="mobile-label">Total Payable Amount </span>
+          <span class="mobile-label-align">{{ row?.totalAmount }}
+          </span>
+        </div>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="revenueAmount">
+      <mat-header-cell *matHeaderCellDef>
+        <p class="mb-0 uppercase text-base text-black-500 font-semibold">Revenue Stamp Amount</p>
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let row">
+        <div class="flex items-center justify-between w-full">
+          <span class="mobile-label">Revenue Stamp Amount</span>
+          <span class="mobile-label-align">{{ row?.revenueStampAmount }}
+          </span>
+        </div>
+      </mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="netPayable">
+      <mat-header-cell *matHeaderCellDef>
+        <p class="mb-0 uppercase text-base text-black-500 font-semibold">Net Payable</p>
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let row">
+        <div class="flex items-center justify-between w-full">
+          <span class="mobile-label">Net Payable</span>
+          <span class="mobile-label-align">{{ row?.netPayable }}
+          </span>
+        </div>
+      </mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="vatAmount">
+      <mat-header-cell *matHeaderCellDef>
+        <p class="mb-0 uppercase text-base text-black-500 font-semibold">Vat Amount</p>
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let row">
+        <div class="flex items-center justify-between w-full">
+          <span class="mobile-label">Vat Amount</span>
+          <span class="mobile-label-align">{{ row?.vatAmount }}
+          </span>
+        </div>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="taxAmount">
+      <mat-header-cell *matHeaderCellDef>
+        <p class="mb-0 uppercase text-base text-black-500 font-semibold">Tax Amount</p>
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let row">
+        <div class="flex items-center justify-between w-full">
+          <span class="mobile-label">Tax Amount</span>
+          <span class="mobile-label-align">{{ row?.taxAmount }}
+          </span>
+        </div>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef>
+        <p class="mb-0 uppercase text-base text-black-500 font-semibold">Action</p>
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let row">
+        <div class="flex items-center justify-between w-full">
+          <span class="mobile-label">Action:</span>
+          <section class="flex gap-x-3">
+            <button mat-raised-button aria-label="edit" (click)="update(row)" color
+              class="text-white bg-green-500 disabled:bg-gray-400 hover:bg-white hover:text-yellow-500"
+              matTooltip="Update">
+              <i class="material-icons">edit</i>
+            </button>
+          </section>
+        </div>
+      </mat-cell>
+    </ng-container>
+
+    <div *matNoDataRow>
+      <p >No data found</p>
+      <mat-divider></mat-divider>
+    </div>
+
+    <mat-header-row *matHeaderRowDef="getDisplayedColumns()" class="mb-0 uppercase text-base text-black-500 font-semibold"></mat-header-row>
+    <mat-row *matRowDef="let row; let i = index; columns: getDisplayedColumns()"
+      [style.background-color]="i % 2 != 0 ? '#F0F8FF' : 'white'" [style.border]="'0px solid'"
+      class="hover:border-blue-400 hover:bg-blue-100 hover:border">
+    </mat-row>
+  </mat-table>
+
+</div>
+
+
+
